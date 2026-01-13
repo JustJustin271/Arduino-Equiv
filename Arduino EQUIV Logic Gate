@@ -1,0 +1,26 @@
+int btn1Pin = 2;
+int btn2Pin = 3;
+int ledPin = 13;
+
+void setup() {
+    //Define outputs and inputs
+  pinMode(btn1Pin, INPUT_PULLUP); //The Arduino will handle the internal resistance
+  pinMode(btn2Pin, INPUT_PULLUP);
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  bool btn1state = digitalRead(btn1Pin); //Converts button states into Bools' for the Arduino to understand
+  bool btn2state = digitalRead(btn2Pin);
+  
+  if (btn1state == btn2state) { //EQUIV function for the Arduino to understand, only able to compare Bools'
+    digitalWrite(13, HIGH); //If True, it turns on
+    delay(50); //Delay for buttons :D
+  }
+  else {
+    digitalWrite(13,LOW); //If False, it turns off
+    delay(50);
+  }
+}
+//January 13th 2026
+//Created after the XOR gate, additionally to reduce suffering :D
